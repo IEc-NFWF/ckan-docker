@@ -45,6 +45,8 @@ RUN if ! [ /usr/share/zoneinfo/${TZ} -ef /etc/localtime ]; then \
 # Clone the extension(s) your are writing for your own project in the `src` folder
 # to get them mounted in this image at runtime
 
+# RUN pip3 install -e ${APP_DIR}/src_extensions/nfwf-ckan-extensions/ckanext-nfwf_theme/
+
 # Apply any patches needed to CKAN core or any of the built extensions (not the
 # runtime mounted ones)
 
