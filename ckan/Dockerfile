@@ -12,10 +12,10 @@ RUN if ! [ /usr/share/zoneinfo/${TZ} -ef /etc/localtime ]; then \
     fi ;
 
 
-COPY src/nfwf-ckan-extensions/ckanext-nfwf_theme ${APP_DIR}/src/ckanext-nfwf_theme
+COPY nfwf-ckan-extensions/ckanext-nfwf_theme ${APP_DIR}/ckanext-nfwf_theme
 
-RUN pip3 install -e ${APP_DIR}/src/ckanext-nfwf_theme
+RUN pip3 install -e ${APP_DIR}/ckanext-nfwf_theme
 
-COPY src/nfwf-ckan-extensions/ckanext-nfwf_fields ${APP_DIR}/src/ckanext-nfwf_fields
+COPY nfwf-ckan-extensions/ckanext-nfwf_fields ${APP_DIR}/ckanext-nfwf_fields
 
-RUN pip3 install -e ${APP_DIR}/src/ckanext-nfwf_fields
+RUN pip3 install -e ${APP_DIR}/ckanext-nfwf_fields

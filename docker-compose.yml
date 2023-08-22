@@ -8,19 +8,19 @@ volumes:
 
 services:
 
-  nginx:
-    container_name: ${NGINX_CONTAINER_NAME}
-    build:
-      context: nginx/
-      dockerfile: Dockerfile
-    networks:
-      - webnet
-      - ckannet
-    depends_on:
-      ckan:
-        condition: service_healthy
-    ports:
-      - "0.0.0.0:${NGINX_SSLPORT_HOST}:${NGINX_SSLPORT}"
+#  nginx:
+#    container_name: ${NGINX_CONTAINER_NAME}
+#    build:
+#      context: nginx/
+#      dockerfile: Dockerfile
+#    networks:
+#      - webnet
+#      - ckannet
+#    depends_on:
+#      ckan:
+#        condition: service_healthy
+#    ports:
+#      - "0.0.0.0:${NGINX_SSLPORT_HOST}:${NGINX_SSLPORT}"
     
   ckan:
     container_name: ${CKAN_CONTAINER_NAME}
@@ -43,6 +43,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    ports:
+      - "0.0.0.0:${CKAN_PORT_HOST}:${CKAN_PORT}"
     volumes:
       - ckan_storage:/var/lib/ckan
       - ./src:/srv/app/src_extensions
